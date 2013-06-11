@@ -57,6 +57,7 @@ int InitializeCosmicRayData();
 int InitializeRateData(FLOAT Time);
 int InitializeEquilibriumCoolData(FLOAT Time);
 int InitializeGadgetEquilibriumCoolData(FLOAT Time);
+int InitializeEquilibriumCoolDataEOS(const char *table_name);
 int InitializeRadiationFieldData(FLOAT Time);
 int GetUnits(float *DensityUnits, float *LengthUnits,
 	     float *TemperatureUnits, float *TimeUnits,
@@ -982,6 +983,7 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     ret += sscanf(line, "EOSSoundSpeed = %"FSYM, &EOSSoundSpeed);
     ret += sscanf(line, "EOSCriticalDensity = %"FSYM, &EOSCriticalDensity);
     ret += sscanf(line, "EOSGamma = %"FSYM, &EOSGamma);
+    ret += sscanf(line, "MinimumDensityForEOSTable = %"GSYM, &MinimumDensityForEOSTable);
     ret += sscanf(line, "UseConstantAcceleration = %"ISYM, &UseConstantAcceleration);
     ret += sscanf(line, "ConstantAcceleration = %"GSYM" %"GSYM" %"GSYM, &ConstantAcceleration[0],
 		  &ConstantAcceleration[1], &ConstantAcceleration[2]);
@@ -1375,6 +1377,10 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     if (InitializeEquilibriumCoolData(MetaData.Time) == FAIL) {
       ENZO_FAIL("Error in InitializeEquilibriumCoolData.");
     }
+  }
+
+  if (MetalCooling == 4) {
+    InitializeEquilibriumCoolDataEOS(MetalCoolingTable);
   }
 
   /* If using the internal radiation field, initialize it. */

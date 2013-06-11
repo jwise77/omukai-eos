@@ -893,6 +893,7 @@ int WriteParameterFile(FILE *fptr, TopGridData &MetaData, char *name = NULL)
   fprintf(fptr, "EOSSoundSpeed              = %g\n", EOSSoundSpeed);
   fprintf(fptr, "EOSCriticalDensity         = %g\n", EOSCriticalDensity);
   fprintf(fptr, "EOSGamma                   = %g\n", EOSGamma); 
+  fprintf(fptr, "MinimumDensityForEOSTable  = %"GSYM"\n", MinimumDensityForEOSTable);
   fprintf(fptr, "Mu                         = %g\n", Mu);
   fprintf(fptr, "DivBDampingLength          = %g\n", DivBDampingLength);
   fprintf(fptr, "CoolingCutOffDensity1      = %g\n", CoolingCutOffDensity1);

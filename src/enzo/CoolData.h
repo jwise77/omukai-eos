@@ -106,4 +106,12 @@ struct CoolDataType
   float MR_ElectronFracStart;
   float MR_ElectronFracEnd;
 
+  /* Variables for table EOS */
+
+  int EOS_NumberOfMetallicityBins;
+  int EOS_NumberOfDensityBins;
+  float EOS_DensityRange[2];
+  float EOS_MetallicityRange[2];
+  float **EOS_Table;
+
 };
