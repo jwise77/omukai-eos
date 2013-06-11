@@ -28,10 +28,17 @@
 #include "Grid.h"
 #include "TopGridData.h"
 
-int grid::ApplyEOSTable(void)
+int grid::ApplyEOSTable(const float* TotalMetals)
 {
 
-  
+  /* If TotalMetals == NULL, then consider zero metallicity case */
+
+  /* TotalMetals is metal density in code units, use GetUnits to
+     convert to cgs. */
+
+  /* Loop over grid.  Check which cells have rho >
+     MinimumDensityForEOSTable, and then replace the cell temperature
+     with the EOS temperature */
 
   return SUCCESS;
 
