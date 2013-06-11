@@ -2525,6 +2525,8 @@ int zEulerSweep(int j, int NumberOfSubgrids, fluxes *SubgridFluxes[],
 
   int InterpolateStarParticlesToGrid(int NumberOfSPFields);  
 
+  int ApplyEOSTable(void);
+
 //------------------------------------------------------------------------
 // new hydro & MHD routines
 //------------------------------------------------------------------------

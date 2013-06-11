@@ -710,6 +710,7 @@ EXTERN int EOSType;
 EXTERN float EOSSoundSpeed;
 EXTERN float EOSCriticalDensity;
 EXTERN float EOSGamma;
+EXTERN float MinimumDensityForEOSTable;
 EXTERN float C_h;
 EXTERN float C_p;
 EXTERN float DivBDampingLength;

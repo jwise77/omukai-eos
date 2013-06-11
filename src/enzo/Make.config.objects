@@ -308,6 +308,7 @@ OBJS_CONFIG_LIB = \
 	Grid_AllocateGrids.o \
 	Grid_AnalyzeTrackPeaks.o \
 	Grid_AppendForcingToBaryonFields.o \
+	Grid_ApplyEOSTable.o \
 	Grid_ApplyTimeAction.o \
 	Grid_CalculateAngularMomentum.o \
 	Grid_ChangeParticleTypeBeforeSN.o \
@@ -606,6 +607,7 @@ OBJS_CONFIG_LIB = \
 	InexactNewton_Solve.o \
         InitializeCloudyCooling.o \
 	InitializeEquilibriumCoolData.o \
+	InitializeEquilibriumCoolDataEOS.o \
 	InitializeGadgetEquilibriumCoolData.o \
         InitializeLocal.o \
         InitializeLymanWernerTable.o \
