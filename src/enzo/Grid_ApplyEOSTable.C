@@ -33,6 +33,8 @@ int grid::ApplyEOSTable(const float* TotalMetals)
 
   /* If TotalMetals == NULL, then consider zero metallicity case */
 
+  bool MetalExist = (TotalMetals != NULL);
+
   /* TotalMetals is metal density in code units, use GetUnits to
      convert to cgs. */
 
