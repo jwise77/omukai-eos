@@ -352,7 +352,7 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
   /* Override any thermal regime with an EOS, if specified */
   
   if (MetalCooling == 4) {
-    this->ApplyEOSTable(TotalMetals);
+    this->ApplyEOSTable(MetalPointer);
   }
 
   delete [] TotalMetals;
