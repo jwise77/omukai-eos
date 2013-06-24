@@ -50,8 +50,8 @@ int InitializeEquilibriumCoolDataEOS(const char *table_name)
       for (i = 0; i < CoolData.EOS_NumberOfMetallicityBins; i++)
 	CoolData.EOS_Table[i] = new float[CoolData.EOS_NumberOfDensityBins];
     }
-    sscanf(line, "# Density Range = %f %f", &CoolData.EOS_DensityRange[0], &CoolData.EOS_DensityRange[1]);
-    sscanf(line, "# Metallicity Range = %f %f", &CoolData.EOS_MetallicityRange[0], &CoolData.EOS_MetallicityRange[1]);
+    sscanf(line, "# Density Range = %"FSYM" %"FSYM, &CoolData.EOS_DensityRange[0], &CoolData.EOS_DensityRange[1]);
+    sscanf(line, "# Metallicity Range = %"FSYM" %"FSYM, &CoolData.EOS_MetallicityRange[0], &CoolData.EOS_MetallicityRange[1]);
 	  
     if(line[0] != '#'){
       value = strtok(line, delims);
