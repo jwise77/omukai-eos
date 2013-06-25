@@ -77,6 +77,7 @@ int CollapseTestInitialize(FILE *fptr, FILE *Outfptr,
   int CollapseTestUseMetals       = FALSE;
   float CollapseTestInitialTemperature = 1000;
   float CollapseTestInitialDensity     = 1.0;
+  float CollapseTestInitialMetallicity = 1e-10;
   float CollapseTestSphereDensity[MAX_SPHERES],
     CollapseTestSphereTemperature[MAX_SPHERES],
     CollapseTestSphereVelocity[MAX_SPHERES][MAX_DIMENSION],
@@ -150,6 +151,8 @@ int CollapseTestInitialize(FILE *fptr, FILE *Outfptr,
 		  &CollapseTestInitialTemperature);
     ret += sscanf(line, "CollapseTestInitialDensity = %"FSYM,
 		  &CollapseTestInitialDensity);
+    ret += sscanf(line, "CollapseTestInitialMetallicity = %"FSYM,
+		  &CollapseTestInitialMetallicity);
     ret += sscanf(line, "CollapseTestUniformVelocity = %"FSYM" %"FSYM" %"FSYM, 
 		  CollapseTestUniformVelocity, CollapseTestUniformVelocity+1,
 		  CollapseTestUniformVelocity+2);
@@ -240,6 +243,7 @@ int CollapseTestInitialize(FILE *fptr, FILE *Outfptr,
              CollapseTestUniformVelocity, CollapseTestUseColour,
 	     CollapseTestUseMetals,
              CollapseTestInitialTemperature, CollapseTestInitialDensity,
+	     CollapseTestInitialMetallicity,
 	     0) == FAIL) {
     ENZO_FAIL("Error in CollapseTestInitializeGrid.");
   }
@@ -345,6 +349,7 @@ int CollapseTestInitialize(FILE *fptr, FILE *Outfptr,
 		  CollapseTestUniformVelocity, CollapseTestUseColour,
 		  CollapseTestUseMetals,
 		  CollapseTestInitialTemperature, CollapseTestInitialDensity,
+		  CollapseTestInitialMetallicity,
 		  lev-1) == FAIL) {
 		ENZO_FAIL("Error in CollapseTestInitializeGrid.");
 	      }
@@ -389,6 +394,7 @@ int CollapseTestInitialize(FILE *fptr, FILE *Outfptr,
 		 CollapseTestUniformVelocity, CollapseTestUseColour,
 		 CollapseTestUseMetals,
 		 CollapseTestInitialTemperature, CollapseTestInitialDensity,
+		 CollapseTestInitialMetallicity,
 		 level+1) == FAIL) {
 	    ENZO_FAIL("Error in CollapseTestInitializeGrid.");
 	  }

@@ -87,7 +87,8 @@ int grid::CollapseTestInitializeGrid(int NumberOfSpheres,
 				     int   SphereUseColour,
 				     int   SphereUseMetals,
 				     float InitialTemperature, 
-				     float InitialDensity, int level)
+				     float InitialDensity, 
+				     float InitialMetallicity, int level)
 {
   /* declarations */
 
@@ -128,7 +129,7 @@ int grid::CollapseTestInitializeGrid(int NumberOfSpheres,
     }
   }
   if (SphereUseMetals)
-    FieldType[MetalNum = NumberOfBaryonFields++] = SNColour;
+    FieldType[MetalNum = NumberOfBaryonFields++] = Metallicity;
 
   int ColourNum = NumberOfBaryonFields;
   if (SphereUseColour)
@@ -459,8 +460,8 @@ int grid::CollapseTestInitializeGrid(int NumberOfSpheres,
 	  density = InitialDensity;
 	  temperature = temp1 = InitialTemperature;
 	  sigma = sigma1 = 0;
-	  colour = 1.0e-10;
-	  metallicity = tiny_number;
+	  colour = InitialMetallicity;
+	  metallicity = InitialMetallicity;
 	  for (dim = 0; dim < MAX_DIMENSION; dim++) {
 	    Velocity[dim] = 0;
 	    DMVelocity[dim] = 0;
