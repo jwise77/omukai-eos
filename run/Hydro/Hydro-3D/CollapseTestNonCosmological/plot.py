@@ -1,9 +1,10 @@
-import yt.extensions.EnzoSimulation as ES
+#import yt.extensions.EnzoSimulation as ES
 from matplotlib import pyplot
 from yt.mods import *
 import os
 
-es = ES.EnzoSimulation("CollapseTestNonCosmological.enzo", initial_time=0)
+es = simulation("CollapseTestNonCosmological.enzo", "Enzo")
+es._get_all_outputs(find_outputs=True)
 
 output_file = 'rho_max.dat'
 f = open(output_file,'w')
@@ -17,7 +18,7 @@ output_dir = "frames"
 if not os.path.exists(output_dir): os.mkdir(output_dir)
 
 # Loop over all dataset in the requested time interval.
-for output in es.allOutputs:
+for output in es.all_outputs:
 
     pf = load(output['filename'])
     pc = PlotCollection(pf, center=[0.5]*3)
