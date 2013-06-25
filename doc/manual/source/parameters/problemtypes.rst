@@ -622,12 +622,17 @@ Collapse Test (27)
 
 ``CollapseTestInitialTemperature`` (external)
     Initial gas temperature. Default: 1000 K. Units: degrees Kelvin
+``CollapseTestInitialMetallicity`` (external)
+    Initial gas metallicity outside the spheres. Default:
+    1e-10. Units: solar metallicity
 ``CollapseTestNumberOfSpheres`` (external)
     Number of spheres to collapse; must be <= ``MAX_SPHERES=10`` (see
     ``Grid.h`` for definition). Default: 1
 ``CollapseTestRefineAtStart`` (external)
     Boolean flag. Type: integer. If TRUE, then initializing routine
     refines the grid to the desired level. Default: 1 (TRUE)
+``CollapseTestUseMetals`` (external)
+    Boolean flag. Type: integer. Default: 0 (FALSE)
 ``CollapseTestUseColour`` (external)
     Boolean flag. Type: integer. Default: 0 (FALSE)
 ``CollapseTestUseParticles`` (external)

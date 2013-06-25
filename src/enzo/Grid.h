@@ -1935,7 +1935,8 @@ int zEulerSweep(int j, int NumberOfSubgrids, fluxes *SubgridFluxes[],
 			     int   SphereUseColour,
 			     int   SphereUseMetals,
 			     float InitialTemperature, 
-			     float InitialDensity, int level);
+			     float InitialDensity, 
+			     float InitialMetallicity, int level);
 
 /* Cluster: initialize grid. */
 
